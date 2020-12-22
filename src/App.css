@@ -22,6 +22,19 @@ body {
     flex-shrink: 0;
 }
 
+.alert {
+    font-size: medium;
+    text-align: start;
+}
+
+.alert p:not(:last-of-type) {
+    margin-bottom: 6px;
+}
+
+.alert p:last-of-type {
+    margin-bottom: 0;
+}
+
 h1 {
     font-family: 'Poppins', Helvetica, arial, sans-serif;
     text-transform: uppercase;
