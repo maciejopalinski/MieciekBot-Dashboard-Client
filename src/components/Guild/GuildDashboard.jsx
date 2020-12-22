@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Spinner, Alert, Form } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import { Formik } from 'formik';
 import { Dashboard, Confirm } from '../../components';
 
 export function GuildDashboard({ guild }) {
     
-    const [ prefix, setPrefix ] = React.useState('!');
+    const [ prefix, setPrefix ] = React.useState('mb!');
 
     if(guild) {
         return (
@@ -20,7 +20,10 @@ export function GuildDashboard({ guild }) {
 
                     <Formik
                         initialValues={{
-                            prefix: prefix
+                            prefix: prefix,
+                            setting1: 'this is a test value',
+                            setting2: 'option C',
+                            setting3: 'another text input'
                         }}
 
                         validate={(values) => {
@@ -50,41 +53,33 @@ export function GuildDashboard({ guild }) {
                         }) => (
                             <form onSubmit={handleSubmit}>
 
-                                {(errors && Object.keys(errors).length > 0) && (
-                                    <Alert variant='danger'>
-                                        {(errors.prefix && touched.prefix) && errors.prefix}
-                                    </Alert>
-                                )}
+                                <Dashboard.ErrorMessage errors={errors} />
 
                                 <Dashboard.Container
                                     headerText='General Settings'
-                                    
-                                    sections={{
-                                        'Prefix': (
-                                            <Form.Control type='text' name='prefix' onChange={handleChange} value={values.prefix} />
-                                        ),
-                                        'Setting 1': (
-                                            <Form.Control type='text' name='setting1' onChange={handleChange} />
-                                        ),
-                                        'Setting 2': (
-                                            <Form.Control as='select' name='setting2' onChange={handleChange}>
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                            </Form.Control>
-                                        )
-                                    }}
+                                    onChange={handleChange} values={values}
+
+                                    fields={[
+                                        new Dashboard.InputOptions('Prefix'),
+                                        new Dashboard.InputOptions('Setting 1'),
+                                        new Dashboard.InputOptions('Setting 2', 'select', (
+                                            <>
+                                            <option>option A</option>
+                                            <option>option B</option>
+                                            <option>option C</option>
+                                            <option>option D</option>
+                                            </>
+                                        ))
+                                    ]}
                                 />
 
                                 <Dashboard.Container
                                     headerText='Some Other Settings'
+                                    onChange={handleChange} values={values}
 
-                                    sections={{
-                                        'Setting 3': (
-                                            <Form.Control type='text' name='setting3' onChange={handleChange} />
-                                        )
-                                    }}
+                                    fields={[
+                                        new Dashboard.InputOptions('Setting 3')
+                                    ]}
                                 />
 
                                 <Confirm isBtnDisabled={isSubmitting} resetAction={resetForm} />
