@@ -6,7 +6,7 @@
             "request": "attach",
             "type": "pwa-chrome",
             "urlFilter": "http://*:8080/*",
-            "webRoot": "${workspaceFolder}/dashboard-client",
+            "webRoot": "${workspaceFolder}",
             "port": 9222
         }
     ]
