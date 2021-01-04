@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function NotFound(props) {
+export const NotFound = () => {
     return (
         <div>
             <h1>HTTP 404: Not found</h1>

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { User as DBUser } from '../../util';
 
 import './Navbar.css';
 import { Navbar as BSNavbar, Nav } from 'react-bootstrap';
 import { User } from '..';
 
-export function Navbar({ user }) {
+export function Navbar({ user } : { user?: DBUser }) {
     return (
         <BSNavbar bg='dark' variant='dark' expand='lg' className='navbar justify-content-between' sticky='top'>
                 

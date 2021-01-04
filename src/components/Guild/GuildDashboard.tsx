@@ -1,10 +1,11 @@
 import React from 'react';
+import { GuildInfo } from '../../util';
 
 import { Spinner } from 'react-bootstrap';
-import { Formik } from 'formik';
+import { Formik, FormikErrors } from 'formik';
 import { Dashboard, Confirm } from '../../components';
 
-export function GuildDashboard({ guild }) {
+export function GuildDashboard({ guild } : { guild?: GuildInfo }) {
     
     const [ prefix, setPrefix ] = React.useState('mb!');
 
@@ -27,7 +28,7 @@ export function GuildDashboard({ guild }) {
                         }}
 
                         validate={(values) => {
-                            const errors = {};
+                            const errors: FormikErrors<typeof values> = {};
 
                             if(!values.prefix) errors.prefix = 'Prefix is required';
                             if(values.prefix.includes(' ')) errors.prefix = 'Invalid prefix! Prefix cannot have a space in it.';

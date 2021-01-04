@@ -1,17 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { GuildInfo } from '../../util';
 
 import { Button } from 'react-bootstrap';
 import { GuildIcon } from '.';
 
-export function Guild({ history, guild }) {
+type Params = {
+    guild: GuildInfo;
+}
+
+export const Guild = ({ guild } : Params) => {
 
     const link = `/dashboard/${guild.id}`;
 
     const btn_id = `btn-dashboard-${guild.id}`;
 
     return (
-        <div className='guild' onClick={() => document.getElementById(btn_id).click()}>
+        <div className='guild' onClick={() => document.getElementById(btn_id)!.click()}>
             
             <div className='guild-info'>
                 <GuildIcon guild={guild} />    

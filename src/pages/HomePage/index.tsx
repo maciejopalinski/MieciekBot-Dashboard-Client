@@ -1,20 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { getUserDetails } from '../../util/api';
+import { getUserDetails, User } from '../../util';
 
 import './styles.css';
 import { Navbar } from '../../components';
 
-export function HomePage(props) {
+export const HomePage = () => {
     
-    const [ user, setUser ] = React.useState(null);
+    const [ user, setUser ] = React.useState<User>();
 
     React.useEffect(() => {
 
         getUserDetails()
-        .then(res => setUser(res.data))
+        .then(res => setUser(res))
         .catch(err => {
-            setUser({});
+            setUser(null as any);
             console.log("[INFO] Not logged in");
         });
 

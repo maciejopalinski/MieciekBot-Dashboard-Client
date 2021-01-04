@@ -1,7 +1,7 @@
 import React from 'react';
-import { getGuildIcon } from '../../util/api';
+import { GuildInfo, getGuildIcon } from '../../util';
 
-export function GuildIcon({ guild }) {
+export function GuildIcon({ guild } : { guild: GuildInfo }) {
 
     if(guild.icon) {
         return (

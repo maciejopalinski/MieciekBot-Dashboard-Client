@@ -1,25 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { getUserDetails, getMutualGuilds } from '../../util/api';
+import { getUserDetails, getMutualGuilds, GuildInfo, User } from '../../util';
 
 import { Navbar, GuildsWrapper } from '../../components';
 
-export function MenuPage(props) {
+type Props = {
+    history: any;
+}
 
-    const [ user, setUser ] = React.useState(null);
-    const [ guilds, setGuilds ] = React.useState(null);
+export const MenuPage = ({ history } : Props) => {
+
+    const [ user, setUser ] = React.useState<User>();
+    const [ guilds, setGuilds ] = React.useState<GuildInfo[]>();
 
     React.useEffect(() => {
         
         getUserDetails()
-        .then(res => setUser(res.data))
+        .then(res => setUser(res))
         .catch(err => {
-            setUser({});
-            props.history.push('/');
+            setUser(null as any);
+            history.push('/');
         });
         
         getMutualGuilds()
-        .then(res => setGuilds(res.data))
+        .then(res => setGuilds(res))
         .catch(err => {
             setGuilds([]);
         });
@@ -28,7 +32,7 @@ export function MenuPage(props) {
 
     return (
         <div>
-            <Navbar user={user} guilds={guilds} />
+            <Navbar user={user} />
             
             <div className='app'>
                 <h1>Select a server</h1>

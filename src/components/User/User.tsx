@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { User as DBUser } from '../../util';
 
 import { UserAvatar } from '.';
 import { Spinner, NavDropdown, Nav } from 'react-bootstrap';
 
-export function User({ user }) {
+export function User({ user } : { user?: DBUser }) {
     
     const redirectToLogin = process.env.REACT_APP_API_URL + '/auth';
     
@@ -14,7 +15,7 @@ export function User({ user }) {
             return (
                 <Nav>
                     <UserAvatar user={user} />
-                    <NavDropdown title={user.tag}>
+                    <NavDropdown title={user.tag} id={user.id}>
                         <NavDropdown.Item as={Link} to='/dashboard'>Dashboard</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/@me'>Your data</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/logout' className='logout'>Logout</NavDropdown.Item>

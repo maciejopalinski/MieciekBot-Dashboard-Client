@@ -3,9 +3,17 @@ import React from 'react';
 import './Confirm.css';
 import { Button } from 'react-bootstrap';
 
-export function Confirm({ message, isBtnDisabled, resetAction }) {
+type Props = {
+    message?: string;
+    isBtnDisabled: boolean;
+    resetAction: any;
+}
 
-    if(!message) message = 'Careful — you have unsaved changes!';
+export const Confirm = ({
+    message = 'Careful — you have unsaved changes!',
+    isBtnDisabled,
+    resetAction
+} : Props) => {
 
     return (
         <div className='confirm-wrapper'>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { getUserAvatar } from '../../util/api';
+import { User, getUserAvatar } from '../../util';
 
 import './UserAvatar.css'
 
-export function UserAvatar({ user }) {
+export function UserAvatar({ user } : { user: User }) {
     
     return (
         <div className='user-avatar d-none d-lg-block' style={{

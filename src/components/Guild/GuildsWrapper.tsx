@@ -1,10 +1,11 @@
 import React from 'react';
+import { GuildInfo } from '../../util';
 
 import './GuildsWrapper.css';
 import { Spinner } from 'react-bootstrap';
 import { Guild } from '.';
 
-export function GuildsWrapper({ guilds }) {
+export function GuildsWrapper({ guilds } : { guilds?: GuildInfo[] }) {
 
     if(guilds && guilds instanceof Array) {
         // logged in

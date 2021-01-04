@@ -2,35 +2,34 @@ import React from 'react';
 
 import './Dashboard.css';
 import { Alert, Form } from 'react-bootstrap';
+import { FormikErrors } from 'formik';
 
 export class InputOptions {
-    /** @type {string} */ type = 'text';
-    /** @type {string} */ label = '';
-    /** @type {string} */ name = '';
-    /** @type {string} */ as = undefined;
-    children = undefined;
+    type: string;
+    label: string;
+    name: string;
+    as?: React.ElementType;
+    children?: JSX.Element;
 
-    constructor(label, as, children, type, name) {
-        if(type) this.type = type;
-        if(label) this.label = label;
-        if(as) this.as = as;
-        if(children) this.children = children
-        
-        this.name = name || this.label.toLowerCase().replace(' ', '');
+    constructor(label = '', as?: React.ElementType, children?: JSX.Element, type = 'text', name = label.toLowerCase().replace(' ', '')) {
+        this.type = type;
+        this.label = label;
+        this.name = name;
+        this.as = as;
+        this.children = children        
     }
 }
 
-/**
- * @param {object} param0
- * @param {string} param0.headerText
- * @param {Function} param0.onChange
- * @param {object} param0.values
- * @param {InputOptions[]} param0.fields
- * @param {Symbol[]} params0.children
- */
-export function Container({ headerText, onChange, values, fields, children }) {
+type ContainerParams = {
+    headerText: string;
+    onChange: any;
+    values: any;
+    fields: InputOptions[];
+}
 
-    var sections = [];
+export const Container = ({ headerText, onChange, values = {}, fields }: ContainerParams) => {
+
+    var sections: JSX.Element[] = [];
 
     if(fields) {
         fields.forEach(field => {
@@ -55,25 +54,32 @@ export function Container({ headerText, onChange, values, fields, children }) {
             {headerText && (<Header text={headerText} />)}
 
             {(sections) && sections}
-
-            {children}
         </div>
     );
 }
 
-export function Header({ text }) {
+type LabelParams = {
+    text: string;
+}
+
+export const Header = ({ text } : LabelParams) => {
     return (
         <h3 className='dashboard-input-container-header'>{text}</h3>
     );
 }
 
-export function Label({ text }) {
+export const Label = ({ text }: LabelParams) => {
     return (
         <p className='dashboard-input-label'>{text}</p>
     );
 }
 
-export function Section({ labelText, children }) {
+type SectionParams = {
+    labelText: string;
+    children: JSX.Element | JSX.Element[];
+}
+
+export function Section({ labelText, children }: SectionParams) {
     return (
         <div className='dashboard-input-section'>
             {labelText && (<Label text={labelText} />)}
@@ -82,7 +88,7 @@ export function Section({ labelText, children }) {
     );
 }
 
-export function ErrorMessage({ errors }) {
+export function ErrorMessage({ errors }: { errors: FormikErrors<any> }) {
     var keys = Object.keys(errors);
 
     return keys.length > 0 ? (
