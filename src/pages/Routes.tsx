@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { HomePage } from '../pages';
 
 import { API, UserData } from '../data';
