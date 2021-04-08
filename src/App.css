@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: 'Open Sans', sans-serif, Helvetica, arial, sans-serif;
+	word-wrap: break-word;
 }
 
 #root {
