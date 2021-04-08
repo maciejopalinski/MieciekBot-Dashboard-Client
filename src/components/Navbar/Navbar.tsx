@@ -1,10 +1,11 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { UserData } from '../../data';
 
-import { Navbar as BSNavbar, Nav as BSNav } from 'react-bootstrap';
 import './Navbar.css';
+import { Navbar as BSNavbar, Nav as BSNav } from 'react-bootstrap';
+import { UserPanel } from './User';
 
-export const Navbar = ({ user } : { user?: any }) => {
+export const Navbar = ({ user } : { user: UserData }) => {
     
     return (
         <BSNavbar
@@ -27,7 +28,7 @@ export const Navbar = ({ user } : { user?: any }) => {
                     <BSNav.Link as={Link} to='/'>Docs</BSNav.Link>
                 </BSNav>
 
-                {/* <User user={user} /> */}
+                <UserPanel user={user} />
 
             </BSNavbar.Collapse>
 
