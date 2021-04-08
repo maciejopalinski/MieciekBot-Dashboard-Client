@@ -1,13 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { HomePage } from './pages';
-import { Navbar } from './components';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserData } from './data';
 
+import { Routes } from './pages';
+import { Navbar } from './components';
 
 function App() {
 
@@ -15,19 +13,9 @@ function App() {
 
     return (
         <Router>
-            <Navbar />
+            <Navbar user={user} />
 
-            <Switch>
-                
-                <Route exact path='/'>
-                    <HomePage user={user} />
-                </Route>
-
-                <Route path='*'>
-                    <Redirect to='/' />
-                </Route>
-            
-            </Switch>
+            <Routes user={user} />
         </Router>
     );
 }
