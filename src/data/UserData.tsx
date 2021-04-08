@@ -20,7 +20,12 @@ export class UserData extends BaseDataHandler<IUser> {
     }
 
     constructor() {
-        super('API_User', { retry: false });
+        super('API_User', {
+            retry: (failureCount, error) => {
+                if(error.response?.status !== 429) return false;
+                return true;
+            }
+        });
         this.fetch(this.handler);
     }
 
@@ -31,5 +36,13 @@ export class UserData extends BaseDataHandler<IUser> {
         
         if(!avatar) return CDN(`/embed/avatars/${+discriminator % 5}.png?size=${size}`);
         else return CDN(`/avatars/${id}/${avatar}.jpg?size=${size}`);
+    }
+
+    getTag() {
+        if(this.isLoading) return undefined;
+
+        let { username, discriminator } = this.data!;
+
+        return `${username}#${discriminator}`;
     }
 }
