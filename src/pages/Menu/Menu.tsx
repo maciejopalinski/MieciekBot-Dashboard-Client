@@ -1,5 +1,5 @@
 import { UserData } from '../../data';
-import { GuildsWrapper } from '../../components/Dashboard';
+import { GuildsWrapper } from '../../components';
 
 export const MenuPage = ({ user } : { user: UserData }) => {
 
