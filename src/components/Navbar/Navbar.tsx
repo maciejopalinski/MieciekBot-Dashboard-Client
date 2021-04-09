@@ -15,7 +15,7 @@ export const Navbar = ({ user } : { user: UserData }) => {
             sticky='top'
         >
 
-            <BSNavbar.Brand href='/' className='navbar-brand'>
+            <BSNavbar.Brand as={Link} to='/' className='navbar-brand'>
                 <b>MieciekBot</b>
             </BSNavbar.Brand>
 
