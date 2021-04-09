@@ -1,5 +1,5 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { HomePage } from '../pages';
+import { HomePage, DashboardPage, MenuPage } from '../pages';
 
 import { API, UserData } from '../data';
 
@@ -13,7 +13,11 @@ export const Routes = ({ user } : { user: UserData }) => {
             </Route>
 
             <Route exact path='/dashboard'>
-                <HomePage user={user} />
+                <MenuPage user={user} />
+            </Route>
+
+            <Route exact path='/dashboard/:id'>
+                <DashboardPage user={user} />
             </Route>
 
             <Route exact path='/@me' component={(): any => {
