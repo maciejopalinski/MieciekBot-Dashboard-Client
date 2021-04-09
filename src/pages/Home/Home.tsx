@@ -1,6 +1,6 @@
 import { UserData } from '../../data';
 
-import './styles.css';
+import './Home.css';
 
 export const HomePage = ({ user } : { user: UserData }) => {
 
