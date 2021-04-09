@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-import { BaseDataHandler, API, CDN } from './BaseHandler';
-import { IUser } from './Types';
+import { BaseDataHandler, API, CDN, GuildData, IUser } from './';
 
 export class UserData extends BaseDataHandler<IUser> {
     
+    mutual_guilds: GuildData[] = [];
+
     async handler() {
         const general = await axios.get(
             API('/discord/@me'), { withCredentials: true }
@@ -16,6 +17,7 @@ export class UserData extends BaseDataHandler<IUser> {
         
         const user: IUser = general.data;
         user.mutual_guilds = mutual_guilds.data;
+
         return user;
     }
 
@@ -24,8 +26,14 @@ export class UserData extends BaseDataHandler<IUser> {
             retry: (failureCount, error) => {
                 if(error.response?.status !== 429) return false;
                 return true;
+            },
+            onError: (err) => {
+                if(err.response?.status === 401 && window.location.pathname !== '/') {
+                    window.location.href = '/';
+                }
             }
         });
+        
         this.fetch(this.handler);
     }
 

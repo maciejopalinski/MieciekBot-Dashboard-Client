@@ -16,7 +16,7 @@ export interface IGuild {
     permissions: number;
     features: string[];
 
-    config: IGuildConfig;
+    config?: IGuildConfig;
 }
 
 export interface IGuildConfig {
