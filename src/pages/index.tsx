@@ -1,2 +1,4 @@
 export * from './Routes';
-export * from './HomePage';
+export * from './Dashboard/Dashboard';
+export * from './Home/Home';
+export * from './Menu/Menu';
