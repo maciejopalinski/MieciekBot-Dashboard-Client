@@ -6,8 +6,10 @@ export const DashboardPage = ({ user } : { user: UserData }) => {
     let { id } = useParams<{ id: string }>();
 
     return (
-        <div className='app'>
+        <main className='app'>
+
             <h1>Dashboard (ID: {id})</h1>
-        </div>
+
+        </main>
     );
 }
