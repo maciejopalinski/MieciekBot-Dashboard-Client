@@ -1,23 +1,10 @@
 .navbar-brand {
     font-family: Poppins;
+    font-weight: bold;
+    font-size: 23px;
+    margin: 0;
 }
 
 .navbar-items {
     margin-left: 10px;
-}
-
-.dropdown-menu {
-    background-color: #1e1f23;
-}
-
-.dropdown-menu .dropdown-item {
-    color: #a6aab5;
-}
-
-.dropdown-menu .dropdown-item.logout {
-    color: #b7192c;
-}
-
-.dropdown-item:hover {
-    background-color: rgb(21, 22, 26);
 }

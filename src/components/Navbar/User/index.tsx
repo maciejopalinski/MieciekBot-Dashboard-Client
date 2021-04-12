@@ -1,2 +1,2 @@
-export * from './Panel';
 export * from './Avatar';
+export * from './Panel';

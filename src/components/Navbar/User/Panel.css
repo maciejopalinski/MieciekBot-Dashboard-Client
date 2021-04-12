@@ -1,3 +1,37 @@
-.logout {
+@media (min-width: 992px) {
+    .user-panel {
+        order: 3;
+    }
+
+    .dropdown-toggle {
+        display: block !important;
+    }
+
+    .dropdown-menu {
+        margin-top: 0 !important;
+        left: 0 !important;
+    }
+}
+
+.dropdown-toggle {
+    display: none;
+}
+
+.dropdown-menu {
+    background-color: #1e1f23;
+    position: absolute !important;
+    margin-top: 8px !important;
+    left: -120px;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #a6aab5;
+}
+
+.dropdown-menu .dropdown-item.logout {
     color: #b7192c;
+}
+
+.dropdown-item:hover {
+    background-color: rgb(21, 22, 26);
 }
