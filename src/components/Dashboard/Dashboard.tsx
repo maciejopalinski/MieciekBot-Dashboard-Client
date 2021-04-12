@@ -1,4 +1,4 @@
-import { GuildData, UserData } from "../../data";
+import { GuildData, UserData } from '../../data';
 
 export const Dashboard = ({ user, guild } : { user: UserData, guild: GuildData }) => {
 

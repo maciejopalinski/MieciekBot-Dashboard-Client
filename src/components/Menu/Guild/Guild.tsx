@@ -1,7 +1,7 @@
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { GuildIcon } from '.';
-import { GuildData } from "../../../data";
+import { GuildData } from '../../../data';
 
 import './Guild.css';
 

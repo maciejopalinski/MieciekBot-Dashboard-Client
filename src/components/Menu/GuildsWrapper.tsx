@@ -1,7 +1,5 @@
-import { GuildData, UserData } from "../../data";
-import { Guild } from './Guild';
-
-import { Spinner } from 'react-bootstrap';
+import { GuildData, UserData } from '../../data';
+import { Guild, Spinner } from '../';
 
 import './GuildsWrapper.css';
 
@@ -23,10 +21,6 @@ export const GuildsWrapper = ({ user } : { user: UserData }) => {
     }
     else {
         // loading
-        return (
-            <Spinner animation='border' role='status'>
-                <span className='sr-only'>Loading...</span>
-            </Spinner>
-        );
+        return <Spinner />;
     }
 }
