@@ -1,16 +1,17 @@
-.mieciekbot-img {
-    width: 40%;
-    margin-bottom: 6px;
-    margin-top: 30px;
+h1.header-home {
+	font-size: 38px;
+	
+	text-transform: none;
+	padding-top: 8px;
 }
 
-.mieciekbot-name {
-    font-size: 34px;
-    padding-top: 8px;
+p.description-home {
+	font-size: 20px;
+	padding: 0px 10px;
 }
 
-.mieciekbot-desc {
-    font-size: 18px;
-    color: rgba(255, 255, 255, 0.65);
-    padding: 0px 10px;
+img.mieciekbot-avatar {
+	width: 40%;
+	margin-bottom: 6px;
+	margin-top: 30px;
 }
