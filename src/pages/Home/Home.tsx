@@ -1,6 +1,8 @@
 import { ConfirmPopup } from '../../components/Dashboard';
 import { UserData } from '../../data';
 
+import './Home.css';
+
 export const HomePage = ({ user } : { user: UserData }) => {
 
     return (
