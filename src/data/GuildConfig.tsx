@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BaseDataHandler, API, GuildData, IGuildConfig } from './';
+import { BaseDataHandler, API, GuildData, IGuildConfig } from '.';
 
 export class GuildConfigData extends BaseDataHandler<IGuildConfig> {
 
@@ -8,11 +8,10 @@ export class GuildConfigData extends BaseDataHandler<IGuildConfig> {
     async handler() {
         const id = this.guild.data?.id;
 
-        const config = await axios.get(
+        const { data } = await axios.get(
             API(`/discord/guilds/${id}/config`), { withCredentials: true }
         );
-
-        return config.data;
+        return data as IGuildConfig;
     }
 
     constructor(guild: GuildData) {

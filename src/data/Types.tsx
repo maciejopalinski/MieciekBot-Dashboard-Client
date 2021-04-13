@@ -4,8 +4,6 @@ export interface IUser {
     discriminator: string;
     avatar?: string;
     guilds: IGuild[];
-
-    mutual_guilds?: IGuild[];
 }
 
 export interface IGuild {
@@ -15,8 +13,6 @@ export interface IGuild {
     owner: boolean;
     permissions: number;
     features: string[];
-
-    config?: IGuildConfig;
 }
 
 export interface IGuildConfig {
