@@ -1,4 +1,4 @@
-import { GuildData } from '../../../data/GuildData';
+import { GuildData } from '../../../data';
 
 import './GuildIcon.css';
 
