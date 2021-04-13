@@ -1,19 +1,15 @@
-import { GuildData, UserData } from '../../data';
+import { MutualGuildsData } from '../../data';
 import { Guild, Spinner } from '../';
 
 import './GuildsWrapper.css';
 
-export const GuildsWrapper = ({ user } : { user: UserData }) => {
+export const GuildsWrapper = ({ guilds } : { guilds: MutualGuildsData }) => {
 
-    if(user.isSuccess) {
-        user.mutual_guilds = user.data!.mutual_guilds!.map(g => new GuildData(g));
-    }
-
-    if(user.isSuccess) {
+    if(guilds.isSuccess) {
         // logged in
         return (
             <div className='guilds'>
-                {user.mutual_guilds.map(g => (
+                {guilds.data!.map(g => (
                     <Guild guild={g} key={g.data!.id} />
                 ))}
             </div>
