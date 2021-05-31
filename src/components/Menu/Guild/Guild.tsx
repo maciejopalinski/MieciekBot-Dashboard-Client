@@ -1,13 +1,12 @@
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { IGuild } from '../../../data';
 import { GuildIcon } from '.';
-import { GuildData } from '../../../data';
-
 import './Guild.css';
 
-export const Guild = ({ guild } : { guild: GuildData }) => {
+export const Guild = ({ guild } : { guild: IGuild }) => {
 
-    const { id, name } = guild.data!;
+    const { id, name } = guild;
     const link = `/dashboard/${id}`;
     const btn_id = `btn-dashboard-guild-${id}`;
 

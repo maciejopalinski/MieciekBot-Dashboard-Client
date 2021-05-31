@@ -1,4 +1,1 @@
-export * from './Form';
-export * from './Popup';
-
-export * from './Dashboard';
+export * from './Popup/';

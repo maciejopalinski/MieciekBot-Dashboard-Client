@@ -1,16 +1,20 @@
-import { MutualGuildsData } from '../../data';
+import { useQuery } from 'react-query';
 import { Guild, Spinner } from '../';
-
+import { fetchMutualGuilds } from '../../data';
 import './GuildsWrapper.css';
 
-export const GuildsWrapper = ({ guilds } : { guilds: MutualGuildsData }) => {
+export const GuildsWrapper = () => {
 
-    if(guilds.isSuccess) {
+    const { data, isSuccess } = useQuery('/guilds/mutual', fetchMutualGuilds);
+
+    if(isSuccess) {
         // logged in
+        const guilds = data!.data;
+
         return (
             <div className='guilds'>
-                {guilds.data!.map(g => (
-                    <Guild guild={g} key={g.data!.id} />
+                {guilds.map(guild => (
+                    <Guild guild={guild} key={guild.id} />
                 ))}
             </div>
         );

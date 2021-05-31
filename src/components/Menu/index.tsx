@@ -1,3 +1,3 @@
-export * from './Guild';
+export * from './Guild/';
 
 export * from './GuildsWrapper';

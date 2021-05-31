@@ -19,9 +19,9 @@ export interface IGuildConfig {
     guildID: string;
     prefix: string;
     delete_timeout: number;
-    spam_channels: string[];
     roles: IGuildConfigRoles;
     announce: IGuildConfigAnnounceOptions;
+    spam_channels: string[];
 }
 
 export interface IGuildConfigRoles {

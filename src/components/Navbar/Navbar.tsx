@@ -1,13 +1,10 @@
 import { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { UserData } from '../../data';
-
-import './Navbar.css';
 import { Navbar as BSNavbar, Nav as BSNav } from 'react-bootstrap';
 import { UserPanel } from './User';
+import './Navbar.css';
 
 export const NavEntry = ({ href, children } : { href: string, children?: ReactNode }) => {
-
     return (
         <BSNav.Link as={Link} to={href} href={href}>
             {children}
@@ -15,8 +12,8 @@ export const NavEntry = ({ href, children } : { href: string, children?: ReactNo
     );
 }
 
-export const Navbar = ({ user } : { user: UserData }) => {
-    
+export const Navbar = () => {
+
     let location = useLocation();
 
     return (
@@ -33,12 +30,11 @@ export const Navbar = ({ user } : { user: UserData }) => {
                     <b>MieciekBot</b>
                 </BSNavbar.Brand>
 
-                <UserPanel user={user} />
+                <UserPanel />
 
                 <BSNavbar.Collapse className='navbar-items' id='navbar-collapse'>
                     <BSNav className='mr-auto' activeKey={location.pathname}>
                         <NavEntry href='/'>Home</NavEntry>
-                        <NavEntry href='/docs'>Docs</NavEntry>
                         <NavEntry href='/dashboard'>Dashboard</NavEntry>
                     </BSNav>
                 </BSNavbar.Collapse>

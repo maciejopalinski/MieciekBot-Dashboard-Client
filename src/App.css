@@ -58,10 +58,10 @@ p {
 	opacity: 0.62;
 }
 
-/* .sections-wrapper {
+.sections-wrapper {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
 	gap: 25px;
 	justify-content: center;
 	margin-bottom: 25px;
-} */
+}

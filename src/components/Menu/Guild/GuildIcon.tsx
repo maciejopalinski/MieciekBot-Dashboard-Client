@@ -1,22 +1,22 @@
-import { GuildData } from '../../../data';
-
+import { IGuild } from '../../../data';
+import { getGuildIcon } from '../../../utils';
 import './GuildIcon.css';
 
-export const GuildIcon = ({ guild } : { guild: GuildData }) => {
+export const GuildIcon = ({ guild } : { guild: IGuild }) => {
     
-    if(guild.hasIcon()) {
+    if(guild.icon) {
         return (
             <img
                 className='guild-icon guild-image'
-                src={guild.getIcon(512)}
-                alt={`${guild.data?.name} Icon`}
+                src={getGuildIcon(guild, 512)}
+                alt={`${guild.name} Icon`}
             />
         );
     }
     else {
         return (
             <div className='guild-icon guild-acronym'>
-                {guild.data?.name.split(' ').map(v => v[0]).join('')}
+                {guild.name.split(' ').map(v => v[0]).join('')}
             </div>
         );
     }

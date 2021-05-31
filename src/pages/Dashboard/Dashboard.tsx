@@ -1,15 +1,31 @@
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import { UserData } from '../../data';
+import { Spinner } from '../../components';
+import { fetchGuildConfig } from '../../data';
 
-export const DashboardPage = ({ user } : { user: UserData }) => {
+export const DashboardPage = () => {
 
-    let { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>();
 
-    return (
-        <main className='app'>
+    const { data, isSuccess } = useQuery(`/guilds/${id}/config`, () => fetchGuildConfig(id));
 
-            <h1>Dashboard (ID: {id})</h1>
+    if(isSuccess) {
 
-        </main>
-    );
+        const guild = data!.data;
+
+        return (
+            <main className='app'>
+
+                <h1>Dashboard (ID : {id})</h1>
+
+                <code>
+                    {JSON.stringify(guild)}
+                </code>
+
+            </main>
+        );
+    }
+    else {
+        return <Spinner />;
+    }
 }

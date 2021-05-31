@@ -1,9 +1,6 @@
-import { ConfirmPopup } from '../../components/Dashboard';
-import { UserData } from '../../data';
-
 import './Home.css';
 
-export const HomePage = ({ user } : { user: UserData }) => {
+export const HomePage = () => {
 
     return (
         <main className='app center'>
@@ -16,8 +13,6 @@ export const HomePage = ({ user } : { user: UserData }) => {
             />
             <h1 className='header-home'>MieciekBot</h1>
             <p className='description-home'>Includes moderation, leveling, music and much more!</p>
-            
-            <ConfirmPopup resetAction={() => console.log('reset')} />
 
         </main>
     );

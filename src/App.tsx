@@ -6,17 +6,13 @@ import './App.css';
 import { Routes } from './pages';
 import { Navbar } from './components';
 
-import { UserData } from './data';
-
 function App() {
-
-    const user = new UserData();
 
     return (
         <Router>
-            <Navbar user={user} />
+            <Navbar />
 
-            <Routes user={user} />
+            <Routes />
         </Router>
     );
 }
