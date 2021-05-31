@@ -1,0 +1,38 @@
+.guild {
+    display: flex;
+    flex: 1 1 0%;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4em;
+    border-radius: 5px;
+    cursor: pointer;
+
+    margin-bottom: 5px;
+}
+
+.guild:hover {
+    background-color: #23272e;
+}
+
+.guild-info {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin-inline-start: -20px;
+    margin-bottom: -20px;
+}
+
+.guild-name {
+    font-size: 15px;
+    font-weight: bold;
+
+    margin-inline-start: 20px;
+    margin-bottom: 20px;
+    
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 1 0 1em;
+}

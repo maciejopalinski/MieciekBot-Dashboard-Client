@@ -1,0 +1,17 @@
+h1.header-home {
+	font-size: 38px;
+	
+	text-transform: none;
+	padding-top: 8px;
+}
+
+p.description-home {
+	font-size: 20px;
+	padding: 0px 10px;
+}
+
+img.mieciekbot-avatar {
+	width: 40%;
+	margin-bottom: 6px;
+	margin-top: 30px;
+}

@@ -1,0 +1,8 @@
+.guilds {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    padding: 0px 0.5em;
+    align-self: stretch;
+    margin-top: 30px;
+}

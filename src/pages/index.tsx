@@ -1,4 +1,4 @@
-export { HomePage } from './HomePage';
-export { MenuPage } from './MenuPage';
-export { DashboardPage } from './DashboardPage';
-export { NotFound } from './NotFound';
+export * from './Routes';
+export * from './Dashboard/Dashboard';
+export * from './Home/Home';
+export * from './Menu/Menu';
