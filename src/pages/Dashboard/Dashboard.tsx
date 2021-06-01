@@ -1,7 +1,7 @@
-import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import { Spinner } from '../../components';
+import { useQuery } from 'react-query';
 import { fetchGuildConfig } from '../../data';
+import { DashboardForm, Spinner } from '../../components';
 
 export const DashboardPage = () => {
 
@@ -11,16 +11,12 @@ export const DashboardPage = () => {
 
     if(isSuccess) {
 
-        const guild = data!.data;
+        const guild_config = data!.data;
 
         return (
             <main className='app'>
 
-                <h1>Dashboard (ID : {id})</h1>
-
-                <code>
-                    {JSON.stringify(guild)}
-                </code>
+                <DashboardForm config={guild_config} />
 
             </main>
         );
