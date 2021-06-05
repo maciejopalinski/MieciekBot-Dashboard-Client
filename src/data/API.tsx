@@ -34,5 +34,6 @@ export const fetchGuildConfig = async (id: string) => {
 export const submitGuildConfig = async (id: string, data: IGuildConfig) => {
 
     // TODO: add POST request to send updated guild config
+    
     console.log(data);
 }
