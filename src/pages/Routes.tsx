@@ -20,9 +20,10 @@ export const Routes = () => {
                 <DashboardPage />
             </Route>
 
-            <Route exact path='/logout' component={(): any => {
+            <Route exact path='/logout' component={() => {
                 window.location.href = API('/auth/logout');
-            }} />
+                return null;
+            }}/>
 
             <Route path='*'>
                 <Redirect to='/' />
