@@ -1,17 +1,15 @@
 import { Button } from 'react-bootstrap';
 import './Confirm.css';
 
-type ConfirmPopupProps = {
-    message?: string;
-    isBtnDisabled?: boolean;
-    resetAction?: any;
-}
-
 export const ConfirmPopup = ({
     message = 'Careful - you have unsaved changes!',
     isBtnDisabled = false,
-    resetAction = null
-} : ConfirmPopupProps) => {
+    resetAction
+} : {
+    message?: string,
+    isBtnDisabled?: boolean,
+    resetAction?: any
+}) => {
 
     return (
         <div className='confirm-wrapper'>

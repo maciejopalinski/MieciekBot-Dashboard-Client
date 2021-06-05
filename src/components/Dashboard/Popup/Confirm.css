@@ -1,5 +1,5 @@
 .confirm-wrapper {
-    position: absolute;
+    position: fixed;
     bottom: 14px;
     left: 10px;
     right: 10px;
