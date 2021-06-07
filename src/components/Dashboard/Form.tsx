@@ -23,7 +23,7 @@ export const DashboardForm = ({ config } : { config : IGuildConfig }) => {
 
             enableReinitialize={true}
         >
-            {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, resetForm, setValues }) => (
+            {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValidating, resetForm, setValues }) => (
                 <Form onSubmit={handleSubmit}>
 
                     <Form.Label>Basic Settings</Form.Label>
@@ -84,7 +84,7 @@ export const DashboardForm = ({ config } : { config : IGuildConfig }) => {
 
                     </Form.Group>
 
-                    <ConfirmPopup isBtnDisabled={isSubmitting} resetAction={resetForm} />
+                    <ConfirmPopup isBtnDisabled={isSubmitting || isValidating} isVisible={Object.keys(touched).length > 0} resetAction={resetForm} />
 
                 </Form>
             )}
