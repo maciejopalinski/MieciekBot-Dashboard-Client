@@ -7,6 +7,15 @@
 
     max-width: 750px;
     margin: auto;
+
+    animation-name: slide-bottom;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+}
+
+@keyframes slide-bottom {
+    from { transform: translateY(150%); }
+    to { transform: translateY(0%); }
 }
 
 .confirm-container {
