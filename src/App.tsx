@@ -7,7 +7,6 @@ import { Routes } from './pages';
 import { Navbar } from './components';
 
 function App() {
-
     return (
         <Router>
             <Navbar />
