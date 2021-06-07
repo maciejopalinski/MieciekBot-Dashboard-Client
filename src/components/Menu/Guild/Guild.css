@@ -30,9 +30,8 @@
 
     margin-inline-start: 20px;
     margin-bottom: 20px;
-    
+
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
     flex: 1 0 1em;
 }
