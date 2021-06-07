@@ -7,7 +7,9 @@ export const DashboardPage = () => {
 
     const { id } = useParams<{ id: string }>();
 
-    const { data, isSuccess } = useQuery(`/guilds/${id}/config`, () => fetchGuildConfig(id));
+    const { data, isSuccess } = useQuery(`/guilds/${id}/config`, () => fetchGuildConfig(id), {
+        refetchOnWindowFocus: false
+    });
     const mutual_guilds = useQuery(`/guilds/mutual`, fetchMutualGuilds);
 
     if(isSuccess && mutual_guilds.isSuccess) {
