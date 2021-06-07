@@ -4,14 +4,16 @@ import './Confirm.css';
 export const ConfirmPopup = ({
     message = 'Careful - you have unsaved changes!',
     isBtnDisabled = false,
+    isVisible = false,
     resetAction
 } : {
     message?: string,
     isBtnDisabled?: boolean,
+    isVisible?: boolean
     resetAction?: any
 }) => {
 
-    return (
+    return isVisible ? (
         <div className='confirm-wrapper'>
             <div className='confirm-container'>
                 <div className='confirm-content'>
@@ -46,5 +48,5 @@ export const ConfirmPopup = ({
                 </div>
             </div>
         </div>
-    );
+    ) : null;
 }
