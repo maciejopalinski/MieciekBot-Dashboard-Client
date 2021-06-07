@@ -28,6 +28,10 @@ export const DashboardPage = () => {
         );
     }
     else {
-        return <Spinner />;
+        return (
+            <main className='app center'>
+                <Spinner />
+            </main>
+        );
     }
 }

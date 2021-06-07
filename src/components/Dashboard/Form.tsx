@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import { IGuildConfig, submitGuildConfig } from '../../data';
 import { ConfirmPopup } from './';
+import './Form.css';
 
 const capitalize = (input: string) => input.charAt(0).toUpperCase() + input.slice(1);
 
@@ -73,7 +74,7 @@ export const DashboardForm = ({ config } : { config : IGuildConfig }) => {
                                 <Button variant='outline-secondary' onClick={() => {
                                     values.spam_channels.splice(index, 1);
                                     setValues(values);
-                                }}>X</Button>
+                                }}>x</Button>
                             </div>
                         ))}
 
